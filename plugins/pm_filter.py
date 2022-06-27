@@ -221,7 +221,6 @@ async def next_page(bot, query):
     elif off_set is None:
         btn.append(
             [InlineKeyboardButton(f"📋 𝖯ᴀɢᴇ {round(int(offset) / 6) + 1} / {round(total / 6)}", callback_data="pages"),
-             InlineKeyboardButton(text=f"1/{round(int(total_results) / 6)}", callback_data="pages"),
              InlineKeyboardButton("𝖭ᴇxᴛ ➡️", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
@@ -867,9 +866,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ɢɪᴛʜᴜʙ', callback_data='github'),
             InlineKeyboardButton("ɪᴍᴀɢᴇ", callback_data='image')
             ],[
-            InlineKeyboardButton('⬅️ ʙᴀᴄᴋ', callback_data='help'),
-            InlineKeyboardButton('🔋 ꜱᴛᴀᴛᴜꜱ', callback_data='stats'),
-            InlineKeyboardButton('⛔️ ᴄʟᴏꜱᴇ', callback_data='close_data')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help'),
+            InlineKeyboardButton('ꜱᴛᴀᴛᴜꜱ', callback_data='stats'),
+            InlineKeyboardButton('ᴄʟᴏꜱᴇ', callback_data='close_data')
         ]]
         reply1 = await query.message.reply_text(
             text="□□□□□□"
@@ -895,8 +894,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         buttons= [[
-            InlineKeyboardButton('⬅️ ʙᴀᴄᴋ', callback_data='start'),
-            InlineKeyboardButton('⛔ 𝖢𝗅𝗈𝗌𝖾', callback_data='close_data')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='start'),
+            InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1416,7 +1415,6 @@ async def auto_filter(client, msg, spoll=False):
         req = message.from_user.id if message.from_user else 0
         btn.append(
             [InlineKeyboardButton(text=f"📋 𝖯ᴀɢᴇ 1/{round(int(total_results) / 6)}", callback_data="pages"),
-             InlineKeyboardButton(text=f"1/{round(int(total_results) / 6)}", callback_data="pages"),
              InlineKeyboardButton(text="𝖭ᴇxᴛ ➡️", callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
